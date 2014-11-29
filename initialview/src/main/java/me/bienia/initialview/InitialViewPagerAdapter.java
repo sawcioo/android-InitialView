@@ -16,7 +16,6 @@ public class InitialViewPagerAdapter extends FragmentStatePagerAdapter{
 
     private Context mContext;
     private ArrayList<InitialViewPage> mPages;
-    private ArrayList<InitialViewPage> pages;
 
     public InitialViewPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -41,6 +40,6 @@ public class InitialViewPagerAdapter extends FragmentStatePagerAdapter{
     }
 
     public void setPages(ArrayList<InitialViewPage> pages) {
-        this.pages = pages;
+        this.mPages = pages;
     }
 }

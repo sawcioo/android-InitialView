@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class InitialView extends LinearLayout {
 
     private ViewPager mPager;
-    private ArrayList<InitialViewPage> mPages;
+    private ArrayList<InitialViewPage> mPages = new ArrayList<InitialViewPage>();
     private InitialViewPagerAdapter mAdapter;
 
     public InitialView(Context context) {
@@ -52,10 +52,22 @@ public class InitialView extends LinearLayout {
         }
     }
 
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
+    public void addInitialViewPage(InitialViewPage page) {
+        if(page != null && !mPages.contains(page)){
+            mPages.add(page);
+        }
+    }
 
+//    @Override
+//    protected void onAttachedToWindow() {
+//        super.onAttachedToWindow();
+//
+//        mAdapter.setPages((ArrayList<InitialViewPage>)mPages.clone());
+//        mAdapter.notifyDataSetChanged();
+//    }
+
+    public void reloadData() {
+        System.out.println(mPages.clone());
         mAdapter.setPages((ArrayList<InitialViewPage>)mPages.clone());
         mAdapter.notifyDataSetChanged();
     }
